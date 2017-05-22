@@ -8,17 +8,22 @@
     </h1>
   </div>
   <div class="list-group">
-    <a data-ng-repeat="job in vm.jobs" data-ui-sref="admin.jobs.edit({jobId: job._id})" class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span data-ng-bind="job.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="job.user" ng-bind="job.user.displayName"></span>
-        <span ng-if="!job.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" data-ng-bind="job.title"></h4>
-      <p class="list-group-item-text" data-ng-bind="job.content"></p>
-    </a>
+
+      <table class="table table-striped">
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Hourly Wage</th>
+          <th>Date Listed</th>
+        </tr>
+        <tr data-ng-repeat="job in vm.jobs">
+          <td><a href="/jobs/{{job._id}}">{{job.title}} - {{job.state}}</a></td>
+          <td>{{job.company}}</td>
+          <td>{{job.hourly_wage}}</td>
+          <td>{{job.created}}</td>
+        </tr>
+      </table>
+
   </div>
   <div class="alert alert-warning text-center" data-ng-if="jobs.$resolved && !jobs.length">
     No jobs yet, why don't you <a data-ui-sref="admin.jobs.create">create one</a>?
