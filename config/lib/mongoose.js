@@ -24,7 +24,7 @@ module.exports.connect = function (cb) {
 
   mongoose.Promise = config.db.promise;
 
-  var db = mongoose.connect(config.db.uri, config.db.options, function (err) {
+  var db = mongoose.connect('mongodb://heroku_dzbm4hvw:((282820))gG@ds143071.mlab.com:43071/heroku_dzbm4hvw', function (err) {
     // Log Error
     if (err) {
       console.error(chalk.red('Could not connect to MongoDB!'));
