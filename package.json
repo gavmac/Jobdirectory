@@ -19,7 +19,7 @@
     "clean": "rm -rf node_modules/ public/lib/",
     "reinstall": "npm cache clean && npm run clean && npm install",
     "start": "gulp",
-    "start:prod": "gulp prod",
+//    "start:prod": "gulp prod",
     "start:debug": "node-debug --web-host 0.0.0.0 server.js & gulp debug",
     "gulp": "gulp",
     "lint": "gulp lint",
